@@ -9,5 +9,15 @@ body{
 }
 .codeBox{
     background-color: #000;
-
+}
+nav{
+    background-color: #999;
+    border-radius: 5px;
+}
+nav ul{
+    display: inline-block;
+}
+nav ul li{
+    display: inline-block;
+    text-decoration: none;
 }

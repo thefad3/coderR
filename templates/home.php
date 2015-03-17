@@ -1,24 +1,11 @@
-<html>
-    <title>Hello World</title>
-    <head>
-        <script type="text/javascript" src="/bower_components/jquery-2.1.3.min/index.js"></script>
-
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/main.css">
-        <script type="text/javascript" src="/js/main.js"></script>
-    </head>
-<body>
-
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch demo modal
-</button>
+<? require('header.php') ?>
+<nav>
+    <ul>
+        <li><a href="/"> Home </a></li>
+        <li><a href="" data-toggle="modal" data-target="#myModal"> Login </a></li>
+        <li><a href="/signup"> Sign Up </a></li>
+    </ul>
+</nav>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -35,6 +22,8 @@
         </div>
     </div>
 <div class="container-fluid">
+
+
 
 <?php
 
@@ -63,5 +52,4 @@ echo'
 
 ?>
 
-</body>
-</html>
+<? require('footer.php'); ?>

@@ -7,7 +7,9 @@
  */
 
 echo'<h4>Hello you logged in?</h4>';
-echo $username;
-echo $password;
+echo '<a href="/logout">Logout</a>'
+?>
 
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {session_start(); echo'session started';}
 ?>
