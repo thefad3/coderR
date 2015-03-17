@@ -5,6 +5,8 @@
  * Date: 3/16/15
  * Time: 10:55 AM
  */
+session_cache_limiter(false);
+session_start();
 
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
@@ -12,18 +14,41 @@ $view = $app->view();
 
 
 $app->get('/', function() use ($app) {
-    session_start();
 
-    if(!$_SESSION['islo']){
-        $app->render('protected.php');
-    }else{
+    if($_SESSION['islo'] == 1){
+        $app->render('header.php');
+        $app->redirect('/protected');
+        $app->render('footer.php');
+
+
+    }else if(!$_SESSION['islo'] == 0){
+        $app->render('header.php');
         $app->render('home.php');
+        $app->render('footer.php');
+
+    }else{
+        $app->render('header.php');
+        $app->render('home.php');
+        $app->render('footer.php');
     }
 });
 
+$app->get('/protected', function() use ($app){
+    if($_SESSION['islo'] == 1){
+        $app->render('header.php');
+        $app->render('protected.php');
+        $app->render('footer.php');
+
+    }else{
+        $app->redirect('/');
+    }
+    });
 
 $app->get('/signup', function () use ($app) {
+    $app->render('header.php');
     $app->render('register.php');
+    $app->render('footer.php');
+
 });
 
 $app->post('/sua', function() use ($app){
@@ -34,35 +59,41 @@ $app->post('/sua', function() use ($app){
     $allPostVars = $app->request->post();
 
     $signup->addUser($allPostVars['username'], sha1($allPostVars['password']));
-    if($signup) {
-        $_SESSION['islo'];
-    }
+
     $app->redirect('/');
 
 });
 
 $app->get('/logout', function() use ($app){
-    session_destroy();
-    $app->redirect('/');
+    $_SESSION['islo'] = 0;
+    $app->render('header.php');
+    $app->render('home.php');
+    $app->render('footer.php');
+
 
 });
 
 $app->post('/login', function() use ($app) {
-    session_start();
     include('class/login.php');
+    require('class/userp.php');
+
     $login = new login();
     $allPostVars = $app->request->post();
     $data = $login->checkLogin($allPostVars['username'], sha1($allPostVars['password']));
     if($data){
         //set session
-        $_SESSION['islo'];
-        $app->redirect('/');
+        $_SESSION['uid'] = $data[0]['id'];
+        $_SESSION['islo'] = 1;
+        $app->render('header.php');
+        $app->render('protected.php');
+        $app->render('footer.php');
+
 
     }else{
 
         $app->redirect('/');
         //session
-        $_SESSION['islo'] = false;
+        $_SESSION['islo'] = 0;
 
     }
 });

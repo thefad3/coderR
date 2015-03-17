@@ -1,4 +1,3 @@
-<? require('header.php') ?>
 <nav>
     <ul>
         <li><a href="/"> Home </a></li>
@@ -47,4 +46,3 @@ echo'
 
 ?>
 
-<? require('footer.php'); ?>
