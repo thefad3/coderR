@@ -22,9 +22,7 @@
     </div>
 <div class="container-fluid">
 
-<?php
 
-echo'
 <h3>codeR</h3>
 
     <div class="row">
@@ -42,7 +40,7 @@ echo'
         <div class="col-md-4">.col-md-4</div>
     </div>
 
-</div>'
+</div>
 
 ?>
 
