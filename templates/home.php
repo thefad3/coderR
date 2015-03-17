@@ -23,12 +23,7 @@
     </div>
 <div class="container-fluid">
 
-
-
 <?php
-
-
-
 
 echo'
 <h3>codeR</h3>

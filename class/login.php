@@ -17,7 +17,6 @@ class login{
         $sqlStatement->execute(array(":username"=>$username,
             ":password"=>$password));
 
-
         $result = $sqlStatement->fetchAll();
         return $result;
 
