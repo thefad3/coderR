@@ -1,0 +1,13 @@
+body{
+    background-color: #666666;
+}
+.contentBox{
+    border-radius: 5px;
+    background-color: #333333;
+    color: #fff;
+    padding: 5px;
+}
+.codeBox{
+    background-color: #000;
+
+}
