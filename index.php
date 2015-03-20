@@ -15,13 +15,11 @@ $view = $app->view();
 
 $app->get('/', function() use ($app) {
 
-    if($_SESSION['islo'] == 1){
-        $app->render('header.php');
+    if(0 == 1){
         $app->redirect('/protected');
-        $app->render('footer.php');
 
 
-    }else if(!$_SESSION['islo'] == 0){
+    }else if(0 == 0){
         $app->render('header.php');
         $app->render('home.php');
         $app->render('footer.php');
@@ -34,7 +32,7 @@ $app->get('/', function() use ($app) {
 });
 
 $app->get('/protected', function() use ($app){
-    if($_SESSION['islo'] == 1){
+        if(1 == 1){
         $app->render('header.php');
         $app->render('protected.php');
         $app->render('footer.php');
