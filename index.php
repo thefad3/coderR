@@ -28,7 +28,6 @@ $app->get('/', function() use ($app) {
 $app->get('/protected', function() use ($app){
 
             $uid = $_SESSION['uid'];
-            //$uid = '15';
             $app->render('header.php');
             $app->render('protected.php', array('uid'=>$uid));
             $app->render('footer.php');
@@ -44,7 +43,7 @@ $app->get('/signup', function () use ($app) {
 $app->post('/sua', function() use ($app){
 
     include('class/addUser.php');
-    $signup = new addUser();
+    $signup = new userReg();
 
     $allPostVars = $app->request->post();
 

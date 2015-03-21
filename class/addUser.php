@@ -6,13 +6,13 @@
  * Time: 11:14 AM
  */
 
-class addUser {
+class userReg {
     public function addUser($username='', $password='')
     {
-        $dbh = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
+        $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
 
-        $stmnt = $dbh->prepare("insert into users (username, password) values(:username, :password)");
+        $qry = $dbc->prepare("insert into users (username, password) values(:username, :password)");
 
-        $stmnt->execute(array(":username" => $username, ":password" => $password));
+        $qry->execute(array(":username" => $username, ":password" => $password));
     }
 };
