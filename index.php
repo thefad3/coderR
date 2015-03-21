@@ -15,14 +15,8 @@ $view = $app->view();
 
 $app->get('/', function() use ($app) {
 
-    if(0 == 1){
+    if(!empty($_SESSION['islo'])){
         $app->redirect('/protected');
-
-
-    }else if(0 == 0){
-        $app->render('header.php');
-        $app->render('home.php');
-        $app->render('footer.php');
 
     }else{
         $app->render('header.php');
@@ -32,14 +26,12 @@ $app->get('/', function() use ($app) {
 });
 
 $app->get('/protected', function() use ($app){
-        if(1 == 1){
-        $app->render('header.php');
-        $app->render('protected.php');
-        $app->render('footer.php');
 
-    }else{
-        $app->redirect('/');
-    }
+            $uid = $_SESSION['uid'];
+            //$uid = '15';
+            $app->render('header.php');
+            $app->render('protected.php', array('uid'=>$uid));
+            $app->render('footer.php');
     });
 
 $app->get('/signup', function () use ($app) {
@@ -63,12 +55,8 @@ $app->post('/sua', function() use ($app){
 });
 
 $app->get('/logout', function() use ($app){
-    $_SESSION['islo'] = 0;
-    $app->render('header.php');
-    $app->render('home.php');
-    $app->render('footer.php');
-
-
+    session_destroy();
+    $app->redirect('/');
 });
 
 $app->post('/login', function() use ($app) {
@@ -77,21 +65,18 @@ $app->post('/login', function() use ($app) {
 
     $login = new login();
     $allPostVars = $app->request->post();
+
     $data = $login->checkLogin($allPostVars['username'], sha1($allPostVars['password']));
     if($data){
         //set session
         $_SESSION['uid'] = $data[0]['id'];
-        $_SESSION['islo'] = 1;
-        $app->render('header.php');
-        $app->render('protected.php');
-        $app->render('footer.php');
-
-
+        $_SESSION['islo'] = true;
+        $app->redirect('/protected');
     }else{
 
         $app->redirect('/');
         //session
-        $_SESSION['islo'] = 0;
+        $_SESSION['islo'] = false;
 
     }
 });

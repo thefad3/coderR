@@ -7,7 +7,9 @@
 <div class="container-fluid">
 
 <?php
-$uid = $_SESSION['uid'];
+require('class/userp.php');
+
+$_SESSION['uid'] = $uid;
 $userData = new userp();
 
 
