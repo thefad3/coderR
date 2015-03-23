@@ -72,12 +72,25 @@ $app->post('/login', function() use ($app) {
         $_SESSION['islo'] = true;
         $app->redirect('/protected');
     }else{
-
-        $app->redirect('/');
         //session
         $_SESSION['islo'] = false;
+        $app->redirect('/');
 
     }
+});
+
+$app->get('/post', function() use ($app){
+
+    //This is where the posting will take action
+    $app->render('header.php');
+    $app->render('post.php');
+    $app->render('footer.php');
+
+});
+
+$app->get('/taken:id', function() use ($app){
+    //Put the view redirect to here with the id
+
 });
 
 

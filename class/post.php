@@ -7,9 +7,27 @@
  */
 
 class post {
-    public function {
+    public function fetchAction(){
+        $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
 
+        $sqlQ = $dbc->prepare("select * from posts");
+
+        $sqlQ->execute();
+
+        $result = $sqlQ->fetchAll();
+        return $result;
 
     }
 
+    public function postAction(){
+        $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
+
+        $sqlQ = $dbc->prepare("select * from posts");
+
+        $sqlQ->execute();
+
+        $result = $sqlQ->fetchAll();
+        return $result;
+
+    }
 }

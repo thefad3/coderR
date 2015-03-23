@@ -1,0 +1,71 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #666;
+$secondary-color: #333;
+$code-bg: #000;
+$text-color: #fff;
+$br: 5px;
+$dis: inline-block;
+$zero: 0;
+$fullWidth: 100%;
+$left: left;
+$right: right;
+
+body {
+  background-color: $primary-color;
+}
+.contentBox{
+  border-radius: $zero;
+  background-color: $secondary-color;
+  color: $text-color;
+  padding: $br;
+}
+.codeBox{
+  background-color: $code-bg;
+}
+nav {
+  background-color: $secondary-color;
+  border-radius: $br;
+    ul li{
+      display: $dis;
+      text-decoration: none;
+      color: $text-color;
+    } ul li a{
+          color: $text-color;
+          }
+}
+.modalBorder {
+  padding: $br;
+  border-radius: $br;
+  border: $br solid $secondary-color;
+  blockquote{
+      p {
+        padding: $br;
+        border-radius: $br;
+      }
+  }
+}
+.formModal{
+  input{
+    width: $fullWidth;
+  }
+  label{
+    font-size: 1.2em;
+  }
+}
+.text-color{
+  color: $code-bg;
+  padding: $br;
+  border-radius: $br;
+  text-align: center;
+  a {
+    color: $code-bg;
+  }
+}
+.left {
+  float: left;
+}
+.right{
+  float: right;
+}
+
+
