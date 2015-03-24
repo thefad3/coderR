@@ -9,12 +9,13 @@ $zero: 0;
 $fullWidth: 100%;
 $left: left;
 $right: right;
-
+$border: 1px;
 body {
   background-color: $primary-color;
 }
 .contentBox{
-  border-radius: $zero;
+  border-radius: $br;
+  border: $primary-color $border solid;
   background-color: $secondary-color;
   color: $text-color;
   padding: $br;

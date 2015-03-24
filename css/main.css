@@ -2,7 +2,8 @@ body {
   background-color: #666; }
 
 .contentBox {
-  border-radius: 0;
+  border-radius: 5px;
+  border: #666 1px solid;
   background-color: #333;
   color: #fff;
   padding: 5px; }

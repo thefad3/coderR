@@ -8,7 +8,7 @@ $posts = $fetchA->fetchAction();
     <ul>
         <li><a href="/"> Home </a></li>
         <li><a href="" data-toggle="modal" data-target="#myModal"> Login </a></li>
-        <li><a href="/signup"> Sign Up </a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myModalWindow"> Sign Up </a></li>
     </ul>
 </nav>
 
@@ -38,11 +38,25 @@ $posts = $fetchA->fetchAction();
 
                 </div>
             </form>
-            <p class='bg-success text-color'><a href="/signup">Don't have an account? Register here!</a></p>
+            <p class='bg-success text-color'><a href="#" data-toggle="modal" data-target="#myModalWindow">Don't have an account? Register here!</a></p>
 
         </div>
         </div>
     </div>
+<div class="modal fade" id="myModalWindow" tabindex="-1" role="dialog" aria-labelledby="myModalWindow" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content modalBorder">
+            <form action="/sua"  enctype="multipart/form-data" method="post">
+                <label>Username:</label>
+                <input name="username" type="text">
+                <label>Password:</label>
+                <input name="password" type="password">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
 <h3>codeR</h3>
     <?

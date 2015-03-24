@@ -85,13 +85,9 @@ $app->get('/post', function() use ($app){
     $app->render('header.php');
     $app->render('post.php');
     $app->render('footer.php');
-
 });
 
-$app->get('/taken:id', function() use ($app){
-    //Put the view redirect to here with the id
 
-});
 
 
 

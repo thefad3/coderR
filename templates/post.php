@@ -13,6 +13,4 @@
         <li><a href="/signup"> Sign Up </a></li>
     </ul>
 </nav>
-<h3>
-    Hello World this is a test
-</h3>
+<h3>Hello World this is a test</h3>
