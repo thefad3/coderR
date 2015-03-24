@@ -44,7 +44,7 @@ $metaData = $userData->getUser($uid);
                     ' . $key['code'] .'
             </code>
         </section>
-        <div>Comment - <a href="/view/'.$key['id'].'">View</a>- <div class="fb-like" data-href="" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></div>
+        <div>Comment - <a href="protected/'.$key['id'].'">View</a>- <div class="fb-like" data-href="" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></div>
         </div>';
     }
     echo '</div>';
