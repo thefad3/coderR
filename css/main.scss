@@ -4,7 +4,6 @@ $secondary-color: #333;
 $code-bg: #000;
 $text-color: #fff;
 $br: 5px;
-$dis: inline-block;
 $zero: 0;
 $fullWidth: 100%;
 $left: left;
@@ -26,17 +25,21 @@ body {
 .codeBox{
   background-color: $code-bg;
 }
-nav {
-  background-color: $secondary-color;
-  border-radius: $br;
-    ul li{
-      display: $dis;
-      text-decoration: none;
-      color: $text-color;
-    } ul li a{
-          color: $text-color;
-          }
+.codeView{
 }
+.codeModal{
+  background-color: $code-bg;
+  padding: $br;
+  border-radius: $br;
+  b{
+    font-size: 1.3em;
+    color: $text-color;
+  }
+  .likeBox{
+    color: $text-color;
+  }
+}
+
 .modalBorder {
   padding: $br;
   border-radius: $br;
@@ -67,11 +70,9 @@ nav {
 }
 .left {
   float: left;
-  clear: left;
 }
 .right{
   float: right;
-  clear: right;
 }
 .posterBox{
   background-color: $secondary-color;

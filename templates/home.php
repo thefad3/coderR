@@ -60,18 +60,27 @@ $posts = $fetchA->fetchAction();
 <div class="container-fluid">
 <h3>codeR</h3>
     <?
-        echo '<div class="row">';
-        foreach($posts as $key){
-            echo'<div class="col-md-4 contentBox">
-                    <h3>'.$key['title'].'</h3>
-                        <section>
-                            <code class="codeBox col-md-12">
-                            ' . htmlentities($key['code']) .'
-                            </code>
-                        </section>
-            </div>';
-        }
+
+    $userData = new userp();
+
+    foreach($posts as $key){
+        $posterName = $userData->getUser($key['poster_id']);
+        echo '<div class="row"><div class="col-md-4"></div>';
+
+        echo'
+            <div class="col-md-4 contentBox">
+            <b>'.$key['title'].'</b>
+            <div class="right">'.$posterName[0]['username'].'</div>
+        <section>
+            <code class="col-md-12 codeBox">
+                    ' . $key['code'] .'
+            </code>
+        </section>
+        </div>';
+        echo '<div class="col-md-4"></div>';
         echo '</div>';
+    }
+
     ?>
 </div>
 

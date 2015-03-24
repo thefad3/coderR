@@ -10,7 +10,7 @@ class post {
     public function fetchAction(){
         $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
 
-        $sqlQ = $dbc->prepare("select * from posts");
+        $sqlQ = $dbc->prepare("select * from posts ORDER BY id DESC");
 
         $sqlQ->execute();
 

@@ -26,11 +26,15 @@ $app->get('/', function() use ($app) {
 });
 
 $app->get('/protected', function() use ($app){
+    if(!empty($_SESSION['islo'])){
+        $uid = $_SESSION['uid'];
+        $app->render('header.php');
+        $app->render('protected.php', array('uid'=>$uid));
+        $app->render('footer.php');
+    }else{
+        $app->redirect('/');
+    }
 
-            $uid = $_SESSION['uid'];
-            $app->render('header.php');
-            $app->render('protected.php', array('uid'=>$uid));
-            $app->render('footer.php');
     });
 
 $app->get('/signup', function () use ($app) {
@@ -101,6 +105,7 @@ $app->post('/postAction', function() use ($app){
 });
 
 $app->get('/protected/:id', function($id) use ($app){
+
     include('class/post.php');
     require('class/userp.php');
 

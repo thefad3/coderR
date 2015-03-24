@@ -18,14 +18,27 @@ $metaData = $userData->getUser($uid);
         selector: "textarea"
     });
 </script>
-<nav>
-    <ul class="left">
-        <li><a href="/"> Home </a></li>
-    </ul>
-    <ul class="right">
-        <li><? echo 'Welcome back, ', $metaData[0]['username']; ?> - </li>
-        <li><a href="/logout">Logout</a></li>
-    </ul>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><b>codeR</b> - Design, Develop, Share</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#"><? echo $metaData[0]['username']; ?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="/profile">View Profile</a></li>
+                    <li><a href="/post">Upload Code</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
 </nav>
 <div class="container">
     <div class="row">
