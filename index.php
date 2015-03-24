@@ -117,6 +117,12 @@ $app->get('/protected/:id', function($id) use ($app){
     $app->render('footer.php');
 });
 
+$app->get('/profile', function() use ($app){
+
+
+
+});
+
 
 
 $app->run();

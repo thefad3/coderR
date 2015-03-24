@@ -11,7 +11,13 @@ body {
     font-size: 1.3em; }
 
 .codeBox {
-  background-color: #000; }
+  background-color: #000;
+  padding: 5px;
+  border-radius: 5px; }
+
+code {
+  background-color: #000;
+  padding: 0; }
 
 .codeModal {
   background-color: #000;
@@ -56,5 +62,22 @@ body {
   padding-top: 5px; }
   .posterBox label {
     color: #fff; }
+
+.blockHead {
+  display: inline-block; }
+
+@media screen and (max-width: 410px) {
+  .navView {
+    visibility: visible; }
+
+  .navQuery {
+    visibility: hidden;
+    display: none; }
+
+  .smallHidden {
+    display: none; }
+
+  .blockHead {
+    display: inline-block; } }
 
 /*# sourceMappingURL=main.css.map */

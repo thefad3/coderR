@@ -24,6 +24,12 @@ body {
 }
 .codeBox{
   background-color: $code-bg;
+  padding: $br;
+  border-radius: $br;
+}
+code{
+  background-color: $code-bg;
+  padding: $zero;
 }
 .codeView{
 }
@@ -82,5 +88,27 @@ body {
   label{
     color: $text-color;
   }
+}
+.blockHead{
+  display: inline-block;
+}
+
+@media screen and (max-width: 410px) {
+
+  .navView{
+    visibility: visible;
+  }
+
+  .navQuery{
+    visibility: hidden;
+    display: none;
+  }
+  .smallHidden{
+    display: none;
+  }
+  .blockHead{
+  display: inline-block;
+  }
+
 }
 

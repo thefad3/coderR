@@ -4,14 +4,22 @@ require('class/userp.php');
 $fetchA = new post();
 $posts = $fetchA->fetchAction();
 ?>
-<nav>
-    <ul>
-        <li><a href="/"> Home </a></li>
-        <li><a href="" data-toggle="modal" data-target="#myModal"> Login </a></li>
-        <li><a href="#" data-toggle="modal" data-target="#myModalWindow"> Sign Up </a></li>
-    </ul>
-</nav>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
 
+        <div class="navbar-header blockHead">
+            <a class="navbar-brand" href="/"><b>codeR</b>  |</a>
+            <a class="navbar-brand smallHidden">Design, Develop, Share</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right navQuery">
+            <li><a href="/"> Home </a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModalWindow"> Sign Up </a></li>
+            <li><a href="" data-toggle="modal" data-target="#myModal"> Login </a></li>
+        </ul>
+
+    </div>
+</nav>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content modalBorder">
@@ -58,7 +66,6 @@ $posts = $fetchA->fetchAction();
 </div>
 
 <div class="container-fluid">
-<h3>codeR</h3>
     <?
 
     $userData = new userp();
@@ -71,8 +78,8 @@ $posts = $fetchA->fetchAction();
             <div class="col-md-4 contentBox">
             <b>'.$key['title'].'</b>
             <div class="right">'.$posterName[0]['username'].'</div>
-        <section>
-            <code class="col-md-12 codeBox">
+        <section class="codeBox">
+                <code>
                     ' . $key['code'] .'
             </code>
         </section>

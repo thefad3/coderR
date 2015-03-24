@@ -41,10 +41,10 @@ $metaData = $userData->getUser($uid);
             <div class="col-md-4 contentBox">
             <b>'.$key['title'].'</b>
             <div class="right">'.$posterName[0]['username'].'</div>
-        <section>
-            <code class="col-md-12 codeBox">
+        <section class="codeBox">
+                <code>
                     ' . $key['code'] .'
-            </code>
+                    </code>
         </section>
         <div>Comment - <a href="protected/'.$key['id'].'">View</a></div>
         </div>';
