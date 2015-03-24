@@ -67,9 +67,11 @@ nav {
 }
 .left {
   float: left;
+  clear: left;
 }
 .right{
   float: right;
+  clear: right;
 }
 .posterBox{
   background-color: $secondary-color;

@@ -100,6 +100,18 @@ $app->post('/postAction', function() use ($app){
     $app->redirect('/');
 });
 
+$app->get('/protected/:id', function($id) use ($app){
+    include('class/post.php');
+    require('class/userp.php');
+
+    $postData = new fetchPost();
+    $returnedData = $postData->fetch($id);
+
+    $app->render('header.php');
+    $app->render('viewpost.php', array('returnedData'=>$returnedData));
+    $app->render('footer.php');
+});
+
 
 
 $app->run();

@@ -21,6 +21,21 @@ class post {
 
 }
 
+class fetchPost{
+    public function fetch($id){
+        $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
+
+        $sqlQ = $dbc->prepare("select * from posts where id = :id");
+
+        $sqlQ->execute(array(":id"=>$id));
+
+        $postItem = $sqlQ->fetchAll();
+
+        return $postItem;
+    }
+
+}
+
 class addPost{
     public function postAction($uid='', $name='', $desc='', $code=''){
         $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");

@@ -45,10 +45,12 @@ nav {
     color: #000; }
 
 .left {
-  float: left; }
+  float: left;
+  clear: left; }
 
 .right {
-  float: right; }
+  float: right;
+  clear: right; }
 
 .posterBox {
   background-color: #333;
