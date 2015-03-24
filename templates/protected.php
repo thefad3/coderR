@@ -19,9 +19,9 @@ $metaData = $userData->getUser($uid);
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#"><? echo $metaData[0]['username']; ?></a></li>
+                <li><a href="profile/<? echo $metaData[0]['id']; ?>"><? echo $metaData[0]['username']; ?></a></li>
                 <li class="divider"></li>
-                <li><a href="/profile">View Profile</a></li>
+                <li><a href="profile/<? echo $metaData[0]['id']; ?>">View Profile</a></li>
                 <li><a href="/post">Upload Code</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
@@ -40,20 +40,19 @@ $metaData = $userData->getUser($uid);
         echo'
             <div class="col-md-4 contentBox">
             <b>'.$key['title'].'</b>
-            <div class="right">'.$posterName[0]['username'].'</div>
+            <div class="right"><a href="profile/'.$posterName[0]['id'].'">'.$posterName[0]['username'].'</a></div>
+
         <section class="codeBox">
                 <code>
                     ' . $key['code'] .'
-                    </code>
+                </code>
         </section>
-        <div>Comment - <a href="protected/'.$key['id'].'">View</a></div>
+        <p></p>
+        <div><a href="" class="btn btn-primary">Comment</a> <a href="protected/'.$key['id'].'" class="btn btn-primary">View Code</a></div>
         </div>';
         echo '<div class="col-md-4"></div></div>';
     }
-
     echo '</div>';
-
-
     ?>
 </div>
 
