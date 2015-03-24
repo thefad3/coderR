@@ -7,6 +7,8 @@ body {
   background-color: #333;
   color: #fff;
   padding: 5px; }
+  .contentBox b {
+    font-size: 1.3em; }
 
 .codeBox {
   background-color: #000; }
@@ -47,5 +49,12 @@ nav {
 
 .right {
   float: right; }
+
+.posterBox {
+  background-color: #333;
+  border-radius: 5px;
+  padding-top: 5px; }
+  .posterBox label {
+    color: #fff; }
 
 /*# sourceMappingURL=main.css.map */

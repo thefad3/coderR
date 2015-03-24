@@ -87,8 +87,18 @@ $app->get('/post', function() use ($app){
     $app->render('footer.php');
 });
 
+$app->post('/postAction', function() use ($app){
+    $uid = $_SESSION['uid'];
+    include('class/post.php');
 
+    $postCode = new addPost();
 
+    $varCalls = $app->request->post();
+
+    $postCode->postAction($uid, $varCalls['name'], $varCalls['desc'], $varCalls['code']);
+    //var_dump($varCalls, $uid);
+    $app->redirect('/');
+});
 
 
 

@@ -1,11 +1,12 @@
 <?
+$_SESSION['uid'] = $uid;
 include('class/post.php');
 require('class/userp.php');
 $fetchA = new post();
 $posts = $fetchA->fetchAction();
-$_SESSION['uid'] = $uid;
 $userData = new userp();
 $metaData = $userData->getUser($uid);
+
 ?>
 <nav>
     <ul class="left">
@@ -24,14 +25,18 @@ $metaData = $userData->getUser($uid);
 echo '<h3>This is the protected page!</h3>';
 echo '<div class="row">';
 foreach($posts as $key){
+    $posterName = $userData->getUser($key['poster_id']);
+
     echo'
         <div class="col-md-4 contentBox">
-        <h3>'.$key['title'].'</h3>
+        <b>'.$key['title'].'</b>
     <section>
         <code class="codeBox col-md-12">
-                ' . htmlentities($key['code']) .'
+                ' . $key['code'] .'
         </code>
     </section>
+    <div>'.$posterName[0]['username'].'</div>
+    <div>Comment - Like - Share</div>
     </div>';
 }
 echo '</div>';

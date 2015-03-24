@@ -19,6 +19,9 @@ body {
   background-color: $secondary-color;
   color: $text-color;
   padding: $br;
+  b{
+    font-size: 1.3em;
+  }
 }
 .codeBox{
   background-color: $code-bg;
@@ -68,5 +71,13 @@ nav {
 .right{
   float: right;
 }
+.posterBox{
+  background-color: $secondary-color;
+  border-radius: $br;
+  padding-top: $br;
 
+  label{
+    color: $text-color;
+  }
+}
 
