@@ -114,8 +114,24 @@ code {
     border-radius: 5px;
     padding: 5px; }
 
-.blockHead {
-  display: inline-block; }
+.commentPosts {
+  background-color: #666;
+  color: #fff;
+  padding-bottom: 10px; }
+  .commentPosts ul {
+    text-decoration: none;
+    list-style: none; }
+    .commentPosts ul li {
+      display: inline-block;
+      font-weight: bold; }
+  .commentPosts .userPosts {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 2px;
+    background-color: #333; }
+
+.commentTitle {
+  color: #fff; }
 
 @media screen and (max-width: 410px) {
   .navView {
@@ -123,9 +139,6 @@ code {
 
   .navQuery {
     visibility: hidden;
-    display: none; }
-
-  .smallHidden {
     display: none; }
 
   .blockHead {

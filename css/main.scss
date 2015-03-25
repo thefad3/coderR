@@ -153,9 +153,31 @@ code{
     padding: $br;
   }
 }
-.blockHead{
-  display: inline-block;
+
+.commentPosts{
+
+  background-color: $primary-color;
+  color: $text-color;
+  padding-bottom: 10px;
+  ul{
+    text-decoration: none;
+    list-style: none;
+    li{
+      display: inline-block;
+      font-weight: bold;
+    }
+  }
+  .userPosts{
+    padding: $br;
+    border-radius: $br;
+    margin-top: 2px;
+    background-color: $secondary-color;
+  }
 }
+.commentTitle{
+  color: $text-color;
+}
+
 
 @media screen and (max-width: 410px) {
 
@@ -167,9 +189,7 @@ code{
     visibility: hidden;
     display: none;
   }
-  .smallHidden{
-    display: none;
-  }
+
   .blockHead{
   display: inline-block;
   }

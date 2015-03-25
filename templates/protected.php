@@ -7,6 +7,10 @@ $posts = $fetchA->fetchAction();
 $userData = new userp();
 $metaData = $userData->getUser($uid);
 
+
+$contentLiked = false;
+
+
 ?>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -59,8 +63,16 @@ $metaData = $userData->getUser($uid);
                 </code>
         </section>
         <p></p>
-        <div><a href="" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a> <a href="protected/'.$key['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-console"></span> View Code</a> <div class="fb-like btn btn-danger" data-href="http://localhost:8888/protected/'.$key['id'].'"  data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"><span class="glyphicon glyphicon-heart-empty"></span> Like</div></div>
-        </div>';
+        <div><a href="comments/'.$key['id'].'/'.$posterName[0]['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a>
+        <a href="protected/'.$key['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-console"></span> View Code</a>
+        ';?>
+    <? if(!$contentLiked): ?>
+        <a href="JavaScript:void(0);" uid="<? echo $metaData[0]['id']; ?>" rel="<? echo $key['id'] ?>" class="likeButton status btn btn-danger"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
+    <? else: ?>
+        <a href="JavaScript:void(0);" uid="<? echo $metaData[0]['id']; ?>" rel="<? echo $key['id'] ?>" class="status liked btn btn-danger unlikeButton"><span class="glyphicon glyphicon-heart-empty"></span> Unlike</a>
+    <? endif ?>
+    <?
+    echo'</div></div>';
         echo '<div class="col-md-3"></div></div>';
     }
     echo '</div>';

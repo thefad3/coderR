@@ -4,19 +4,10 @@ $loggedUser = $_SESSION['uid'];
 $userData = new userp();
 $loggedData = $userData->getUser($loggedUser);
 $dataLoggedin = $loggedData[0];
+$contentLiked = false;
+
 ?>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-        FB.init({
-            appId      : '1492538204340357',
-            status     : true
-        });
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1492538204340357&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
@@ -60,10 +51,18 @@ $dataLoggedin = $loggedData[0];
                 </code>
         </section>
         <p></p>
-        <div><a href="" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a> <a href="../protected/'.$key['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-console"></span> View Code</a> <div class="fb-like btn btn-danger" data-href="http://localhost:8888/protected/'.$key['id'].'"  data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"><span class="glyphicon glyphicon-heart-empty"></span> Like</div></div>
-        </div>';
-            echo '<div class="col-md-3"></div></div>';
+        <div><a href="" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a>
+        '; ?>
+            <? if(!$contentLiked): ?>
+                <a href="JavaScript:void(0);" uid="<? echo $loggedUser; ?>" rel="<? echo $posterName[0]['id'] ?>" class="likeButton status btn btn-danger"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
+            <? else: ?>
+                <a href="JavaScript:void(0);" uid="<? echo $loggedUser; ?>" rel="<? echo $posterName[0]['id'] ?>" class="status liked btn btn-danger unlikeButton"><span class="glyphicon glyphicon-heart-empty"></span> Unlike</a>
+            <? endif ?>
+            <?
+            echo'</div></div>';
+            echo '<div class="col-md-3"></div>';
+            echo '</div>';
+
         }
-        echo '</div>';
         ?>
     </div>

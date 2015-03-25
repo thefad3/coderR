@@ -6,18 +6,19 @@ $posts = $fetchA->fetchAction();
 ?>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-
-        <div class="navbar-header blockHead">
-            <a class="navbar-brand" href="/"><b>codeR</b>  |</a>
-            <a class="navbar-brand smallHidden">Design, Develop, Share</a>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tasks"></span>  <b>codeR</b> </a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/"> Home </a></li>
-            <li><a href="#" data-toggle="modal" data-target="#myModalWindow"> Sign Up </a></li>
-            <li><a href="" data-toggle="modal" data-target="#myModal"> Login </a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span> Login / SignUp<span class="caret"></span></a>
+         <ul class="dropdown-menu" role="menu">
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModalWindow"><span class="glyphicon glyphicon-pencil"></span> Sign Up </a></li>
+            <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-console"></span> Login </a></li>
         </ul>
-
+    </li>
     </div>
 </nav>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >

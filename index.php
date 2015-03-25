@@ -129,6 +129,44 @@ $app->get('/profile/:id', function($id) use ($app){
 
 });
 
+$app->post('/like/:uid/:pid', function($uid, $pid) use ($app){
+    include('class/like.php');
+    $likeData = new like();
+    $sendLike = $likeData->likeCode($uid,$pid);
+    var_dump($sendLike);
+});
+$app->post('/unlike/:uid/:pid', function($uid, $pid) use ($app){
+    include('class/like.php');
+    $unlikeData = new like();
+    $sendLike = $unlikeData->unlikeCode($uid,$pid);
+    var_dump($sendLike);
+});
+$app->get('/comments/:pid/:liu', function($pid, $liu) use ($app){
+    include('class/profile.php');
+    include('class/post.php');
+    require('class/userp.php');
+    include('class/comments.php');
+
+
+    $userData = new profile();
+    $userReturnedData = $userData->fetchProfile($liu);
+
+    $postData = new fetchPost();
+    $returnedData = $postData->fetch($pid);
+
+    $app->render('viewsh.php');
+    $app->render('comments.php', array(
+        'returnedData'=>$returnedData,
+        'userReturnedData'=>$userReturnedData,
+        'postingID'=>$pid
+    ));
+
+});
+
+$app->post('/addComment/:pid', function($pid) use ($app){
+
+
+});
 
 
 $app->run();
