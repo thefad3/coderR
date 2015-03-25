@@ -1,12 +1,12 @@
 body {
-  background-color: #666; }
+  background-image: url("../img/footer_lodyas.png"); }
 
 .contentBox {
   border-radius: 5px;
-  border: #666 1px solid;
   background-color: #333;
   color: #fff;
-  padding: 5px; }
+  padding-top: 5px;
+  padding-bottom: 5px; }
   .contentBox b {
     font-size: 1.3em; }
 

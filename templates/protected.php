@@ -36,9 +36,9 @@ $metaData = $userData->getUser($uid);
 
     foreach($posts as $key){
         $posterName = $userData->getUser($key['poster_id']);
-        echo '<div class="row"><div class="col-md-4"></div>';
+        echo '<div class="row"><div class="col-md-3"></div>';
         echo'
-            <div class="col-md-4 contentBox">
+            <div class="col-md-6 contentBox">
             <b>'.$key['title'].'</b>
             <div class="right"><a href="profile/'.$posterName[0]['id'].'">'.$posterName[0]['username'].'</a></div>
 
@@ -50,7 +50,7 @@ $metaData = $userData->getUser($uid);
         <p></p>
         <div><a href="" class="btn btn-primary">Comment</a> <a href="protected/'.$key['id'].'" class="btn btn-primary">View Code</a></div>
         </div>';
-        echo '<div class="col-md-4"></div></div>';
+        echo '<div class="col-md-3"></div></div>';
     }
     echo '</div>';
     ?>

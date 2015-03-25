@@ -120,6 +120,15 @@ $app->get('/protected/:id', function($id) use ($app){
 $app->get('/profile/:id', function($id) use ($app){
 
     $profileId = $id;
+    include('class/profile.php');
+    require('class/userp.php');
+
+    $postData = new profile();
+    $returnedData = $postData->fetchProfile($profileId);
+
+    $app->render('viewsh.php');
+    $app->render('profile.php', array('returnedData'=>$returnedData));
+    $app->render('footer.php');
 
 });
 

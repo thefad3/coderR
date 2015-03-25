@@ -19,9 +19,9 @@ $dataUser = $viewData[0];
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><? echo $dataLoggedin['username']; ?></a></li>
+                    <li><a href="profile/<? echo $loggedUser ?>"><? echo $dataLoggedin['username']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="/profile">View Profile</a></li>
+                    <li><a href="profile/<? echo $loggedUser ?>">View Profile</a></li>
                     <li><a href="/post">Upload Code</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
@@ -33,24 +33,17 @@ $dataUser = $viewData[0];
 
     <div class="container-fluid">
 <?php
-/**
- * Created by PhpStorm.
- * User: chrismac
- * Date: 3/24/15
- * Time: 11:37 AM
- */
-
-
 
 echo '<div class="col-md-3"></div>';
 echo'<div class="col-md-6 codeModal">
             <b>'.$data['title'].'</b>
+            <hr width="90%">
         <section>
             <code class="col-md-12 codeView">
                     ' . $data['code'] .'
             </code>
         </section>
-        <div class="col-md-12 likeBox">' .  $dataUser['username'] .'</div>
+        <div class="col-md-12 likeBox">Created By: ' .  $dataUser['username'] .'</div>
         </div>';
 echo '<div class="col-md-3"></div>'
 

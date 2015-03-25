@@ -10,14 +10,14 @@ $left: left;
 $right: right;
 $border: 1px;
 body {
-  background-color: $primary-color;
+  background-image: url("../img/footer_lodyas.png");
 }
 .contentBox{
   border-radius: $br;
-  border: $primary-color $border solid;
   background-color: $secondary-color;
   color: $text-color;
-  padding: $br;
+  padding-top: $br;
+  padding-bottom: $br;
   b{
     font-size: 1.3em;
   }
@@ -43,6 +43,7 @@ code{
   }
   .likeBox{
     color: $text-color;
+
   }
 }
 
