@@ -22,18 +22,18 @@ $metaData = $userData->getUser($uid);
     <div class="container-fluid">
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><b>codeR</b> - Design, Develop, Share</a>
+            <a class="<span class="glyphicon glyphicon-tasks"></span> " href="/"><span class="glyphicon glyphicon-tasks"></span>  <b>codeR</b> - Design, Develop, Share</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><? echo $metaData[0]['username']; ?></a></li>
+                    <li><a href="profile/<? echo $metaData[0]['id']; ?>"><span class="glyphicon glyphicon-plus-sign"></span>  <? echo $metaData[0]['username']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="/profile">View Profile</a></li>
-                    <li><a href="/post">Upload Code</a></li>
-                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="profile/<? echo $metaData[0]['id']; ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span>View Profile</a></li>
+                    <li><a href="/post"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"> </span> Upload Code</a></li>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"> </span> Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -58,7 +58,7 @@ $metaData = $userData->getUser($uid);
                     <textarea name="code"></textarea>
                     </div>
                     <div class="form-group">
-                    <input type="submit" class="btn btn-primary"> <a class="btn btn-default" href="/">Cancel</a>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-circle"></span> Post Code</button> <a class="btn btn-default" href="/"><span class="glyphicon glyphicon-ban-circle"></span> Cancel</a>
                     </div>
                 </form>
             </div>

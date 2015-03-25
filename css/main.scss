@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #666;
 $secondary-color: #333;
@@ -12,14 +13,47 @@ $border: 1px;
 body {
   background-image: url("../img/footer_lodyas.png");
 }
+footer{
+  margin-top: $br;
+  border-radius: $br;
+
+  ul{
+    text-decoration: none;
+    list-style: none;
+    color: $text-color;
+
+    li{
+      display: inline-block;
+
+    }
+  }
+  .footerStyle{
+    border-radius: $br;
+    padding-top: $br;
+    vertical-align: middle;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+
+  }
+}
 .contentBox{
   border-radius: $br;
   background-color: $secondary-color;
   color: $text-color;
   padding-top: $br;
   padding-bottom: $br;
+  margin-top: $br;
+  -webkit-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
   b{
     font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+  }
+  .right a{
+    color: #ff3414;
   }
 }
 .codeBox{
@@ -30,8 +64,33 @@ body {
 code{
   background-color: $code-bg;
   padding: $zero;
+  border-radius: 2px;
+}
+.navbar-header{
+  span{
+    color: $text-color;
+  }
 }
 .codeView{
+  background-color: $code-bg;
+  padding-top: 10px;
+}
+.transParent{
+  background-color: rgba(0,0,0,.5);
+  padding: $br;
+  border-radius: $br;
+  -webkit-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
+  b{
+    font-size: 1.3em;
+    color: $text-color;
+  }
+  .likeBox{
+    color: $text-color;
+
+  }
+
 }
 .codeModal{
   background-color: $code-bg;
@@ -82,12 +141,16 @@ code{
   float: right;
 }
 .posterBox{
-  background-color: $secondary-color;
+  background-color: $primary-color;
   border-radius: $br;
   padding-top: $br;
 
   label{
     color: $text-color;
+    background-color: rgba(0,0,0,.2);
+    width: $fullWidth;
+    border-radius: $br;
+    padding: $br;
   }
 }
 .blockHead{

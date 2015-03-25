@@ -88,13 +88,12 @@ $app->get('/post', function() use ($app){
     //This is where the posting will take action
     $app->render('header.php');
     $app->render('post.php');
-    $app->render('footer.php');
 });
 
 $app->post('/postAction', function() use ($app){
     $uid = $_SESSION['uid'];
     include('class/post.php');
-
+    $_SESSION['newpost'] = true;
     $postCode = new addPost();
 
     $varCalls = $app->request->post();
@@ -114,7 +113,6 @@ $app->get('/protected/:id', function($id) use ($app){
 
     $app->render('viewsh.php');
     $app->render('viewpost.php', array('returnedData'=>$returnedData));
-    $app->render('footer.php');
 });
 
 $app->get('/profile/:id', function($id) use ($app){
@@ -128,7 +126,6 @@ $app->get('/profile/:id', function($id) use ($app){
 
     $app->render('viewsh.php');
     $app->render('profile.php', array('returnedData'=>$returnedData));
-    $app->render('footer.php');
 
 });
 

@@ -12,18 +12,18 @@ $dataUser = $viewData[0];
     <div class="container-fluid">
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><b>codeR</b> - Design, Develop, Share</a>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tasks"></span>  <b>codeR</b> - Design, Develop, Share</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="profile/<? echo $loggedUser ?>"><? echo $dataLoggedin['username']; ?></a></li>
+                    <li><a href="/profile/<? echo $loggedUser ?>"><span class="glyphicon glyphicon-plus-sign"></span> <? echo $dataLoggedin['username']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="profile/<? echo $loggedUser ?>">View Profile</a></li>
-                    <li><a href="/post">Upload Code</a></li>
-                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/profile/<? echo $loggedUser ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span> View Profile</a></li>
+                    <li><a href="/post"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"> </span> Upload Code</a></li>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"> </span> Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -35,11 +35,11 @@ $dataUser = $viewData[0];
 <?php
 
 echo '<div class="col-md-3"></div>';
-echo'<div class="col-md-6 codeModal">
+echo'<div class="col-md-6 transParent">
             <b>'.$data['title'].'</b>
-            <hr width="90%">
-        <section>
-            <code class="col-md-12 codeView">
+            <hr width="100%">
+        <section class="col-md-12 codeView">
+            <code>
                     ' . $data['code'] .'
             </code>
         </section>
