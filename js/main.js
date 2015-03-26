@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('.likeButton').click(function() {
+    $('.like').click(function() {
 
         var contentId = $(this).attr('rel');
         var userInfo = $(this).attr('uid');
@@ -19,6 +19,6 @@ $(document).ready(function() {
 
     });
     $('#close').on('closed.bs.alert', function () {
-
+        console.log('Closed Alert');
     })
 });

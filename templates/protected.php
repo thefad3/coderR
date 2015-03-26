@@ -7,10 +7,6 @@ $posts = $fetchA->fetchAction();
 $userData = new userp();
 $metaData = $userData->getUser($uid);
 
-
-$contentLiked = false;
-
-
 ?>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -51,9 +47,15 @@ $contentLiked = false;
 
 
     <?php
+    $like = new checkLike();
+    $likeCheck = $like->likeCheck($uid);
+
 
     foreach($posts as $key){
         $posterName = $userData->getUser($key['poster_id']);
+
+
+        //var_dump($likeCheck);
         echo '<div class="row"><div class="col-md-3"></div>';
         echo'
             <div class="col-md-6 contentBox">
@@ -67,13 +69,25 @@ $contentLiked = false;
         </section>
         </blockquote>
         <p></p>
-        <div><a href="comments/'.$key['id'].'/'.$posterName[0]['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a>
+        <div><a href="comments/'.$key['id'].'/'.$posterName[0]['id'].'" class="btn btn-danger right"><span class="glyphicon glyphicon-edit"></span> Comment</a>
         <a href="protected/'.$key['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-console"></span> View Code</a>
-        ';?>
-    <? if(!$contentLiked): ?>
-        <a href="JavaScript:void(0);" uid="<? echo $metaData[0]['id']; ?>" rel="<? echo $key['id'] ?>" class="likeButton status btn btn-danger"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
+        ';
+
+        foreach($likeCheck as $test){
+            //var_dump($test);
+
+            if ($test['pid'] == $key['id']) {
+                $contentLiked = true;
+            } else {
+                $contentLiked = false;
+            }
+        }
+
+        ?>
+    <? if(empty($contentLiked)): ?>
+        <a href="JavaScript:void(0);" uid="<? echo $metaData[0]['id']; ?>" rel="<? echo $key['id'] ?>" class="like status btn btn-danger"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
     <? else: ?>
-        <a href="JavaScript:void(0);" uid="<? echo $metaData[0]['id']; ?>" rel="<? echo $key['id'] ?>" class="status liked btn btn-danger unlikeButton"><span class="glyphicon glyphicon-heart-empty"></span> Unlike</a>
+        <a href="JavaScript:void(0);" uid="<? echo $metaData[0]['id']; ?>" rel="<? echo $key['id'] ?>" class="status like btn btn-danger"><span class="glyphicon glyphicon-thumbs-up"></span> Liked</a>
     <? endif ?>
     <?
     echo'</div></div>';

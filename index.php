@@ -27,10 +27,12 @@ $app->get('/', function() use ($app) {
 
 $app->get('/protected', function() use ($app){
     if(!empty($_SESSION['islo'])){
+        include('class/like.php');
         $uid = $_SESSION['uid'];
         $app->render('header.php');
         $app->render('protected.php', array('uid'=>$uid));
         $app->render('footer.php');
+
     }else{
         $app->redirect('/');
     }
@@ -52,7 +54,7 @@ $app->post('/sua', function() use ($app){
     $allPostVars = $app->request->post();
 
     $signup->addUser($allPostVars['username'], sha1($allPostVars['password']));
-
+    $_SESSION['sua'] = true;
     $app->redirect('/');
 
 });

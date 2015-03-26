@@ -1,5 +1,5 @@
 <html>
-<title>Hello World</title>
+<title>codeR - Design, Develop, Share</title>
 <head>
     <script type="text/javascript" src="/bower_components/jquery-2.1.3.min/index.js"></script>
 

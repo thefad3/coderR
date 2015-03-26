@@ -42,17 +42,7 @@ $userReturnedData[0];
 </nav>
 
 <div class="container-fluid">
-    <?
-    if(!empty($_SESSION['cpost'])){
 
-        echo '<div class="alert alert-danger" role="alert">You have Sucessfully Posted Your Comment! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-</button></div>';
-        unset($_SESSION['cpost']);
-    }else{
-
-    }
-    ?>
     <?php
 
     echo '<div class="row"><div class="col-md-3"></div>';
@@ -78,27 +68,36 @@ $userReturnedData[0];
     <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 commentPosts">
-        <span class="glyphicon glyphicon-bullhorn"></span> <b>Comments</b>
-
-        <ul>
-            <li class="left">User</li>
-            <li class="right">Comments</li>
-        </ul>
-
+        <span class="glyphicon glyphicon-bullhorn"></span> <b> Comments</b>
         <?
-    foreach($userComments as $commentKey){
-        $viewCommentUser = $userData->getUser($commentKey['posterId']);
-        if($commentKey){
-            echo '<div class="col-md-12 userPosts">';
-            echo '<div class="col-md-2"><span class="glyphicon glyphicon-user"></span> ' . $viewCommentUser[0]['username'] . '</div>';
-            echo '<div class="col-md-8">' . htmlentities($commentKey['comments']) . '</div>';
-            echo '</div>';
+        if(!empty($_SESSION['cpost'])){
 
+            echo '<div class="alert alert-danger" role="alert">You have Sucessfully Posted Your Comment! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button></div>';
+            unset($_SESSION['cpost']);
         }else{
-            echo '<div class="col-md-12">There are no comments :O Post one!</div>';
+
+        }
+        ?>
+        <hr width="100%">
+        <?
+        if(!$userComments){
+
+            echo '<div class="alert alert-info" role="alert">Sorry, there are no comments posted yet :(</div>';
+
         }
 
+    foreach($userComments as $commentKey){
+        $viewCommentUser = $userData->getUser($commentKey['posterId']);
+        //var_dump($commentKey);
+            echo '<ul class="userPosts">';
+            echo '<li><span class="glyphicon glyphicon-user"></span> ' . $viewCommentUser[0]['username'] . ':';
+            echo '<div class="alert alert-success">' . htmlentities($commentKey['comments']) . '</div></li>';
+            echo '</ul>';
+
     }
+
     ?>
         <div class="col-md-12 commentsBG">
             <hr width="100%">

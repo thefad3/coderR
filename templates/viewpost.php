@@ -78,20 +78,21 @@ echo'<div class="col-md-6 transParent">
             <div class="col-md-3"></div>
             <div class="col-md-6 commentPosts">
                 <span class="glyphicon glyphicon-bullhorn"></span> <b>Comments</b>
-
-                <ul>
-                    <li class="left">User</li>
-                    <li class="right">Comments</li>
-                </ul>
-
+                <hr width="100%">
                 <?
+                if(!$userComments){
+
+                    echo '<div class="alert alert-info" role="alert">Sorry, there are no comments posted yet :(</div>';
+
+                }
                 foreach($userComments as $commentKey){
                     $viewCommentUser = $userData->getUser($commentKey['posterId']);
-                    echo '<div class="col-md-12 userPosts">';
-                    echo '<div class="col-md-2"><span class="glyphicon glyphicon-user"></span> '.$viewCommentUser[0]['username'].'</div>';
-                    echo '<div class="col-md-8">'.htmlentities($commentKey['comments']).'</div>';
-                    echo '</div>';
+                    echo '<ul class="userPosts">';
+                    echo '<li><span class="glyphicon glyphicon-user"></span> '.$viewCommentUser[0]['username'].':</li>';
+                    echo '<li><div class="alert alert-success">'.htmlentities($commentKey['comments']).'</div></li>';
+                    echo '</ul>';
                 }
+
                 ?>
                 <div class="col-md-12 commentsBG">
 

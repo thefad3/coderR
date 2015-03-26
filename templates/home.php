@@ -36,18 +36,18 @@ $posts = $fetchA->fetchAction();
             <form action="/login"  enctype="multipart/form-data" method="post">
                 <div class="form-group formModal"><blockquote>
                 <label>Username:</label>
-                <input name="username" type="text">
+                <input name="username" type="text" required>
                 </blockquote></div>
                 <div class="form-group formModal"><blockquote>
                 <label>Password:</label>
-                <input name="password" type="password">
+                <input name="password" type="password" required>
                 </blockquote></div>
                 <div class="form-group">
                 <input type="submit" value="Login" class="btn btn-default">
 
                 </div>
             </form>
-            <p class='bg-success text-color'><a href="#" data-toggle="modal" data-target="#myModalWindow">Don't have an account? Register here!</a></p>
+            <p class='bg-success text-color alert alert-info loginColor'><a href="#" data-toggle="modal" data-target="#myModalWindow">Don't have an account? Register here!</a></p>
 
         </div>
         </div>
@@ -59,19 +59,31 @@ $posts = $fetchA->fetchAction();
             <form action="/sua"  enctype="multipart/form-data" method="post">
                 <div class="form-group formModal"><blockquote>
                 <label>Username:</label>
-                <input name="username" type="text">
+                <input name="username" type="text" required>
                 </blockquote></div>
                 <div class="form-group formModal"><blockquote>
                 <label>Password:</label>
-                <input name="password" type="password">
+                <input name="password" type="password" required>
                 </blockquote></div>
-                <input type="submit" value="Sign Up">
+                <input type="submit" class="btn btn-default" value="Sign Up">
             </form>
         </div>
     </div>
 </div>
 
 <div class="container-fluid">
+
+    <?
+    if(!empty($_SESSION['sua'])){
+
+        echo '<div class="alert alert-danger" role="alert">Thanks for Signing up!<a href="" data-toggle="modal" data-target="#myModal"> Login Here </a><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button></div>';
+        unset($_SESSION['sua']);
+    }else{
+
+    }
+    ?>
     <?
 
     $userData = new userp();

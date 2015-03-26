@@ -58,7 +58,7 @@ $metaData = $userData->getUser($uid);
                     </div>
                     <div class="form-group">
                     <label>Paste your Code here (PHP, jQuery, HTML, CSS):</label>
-                    <textarea name="code" required></textarea>
+                    <textarea name="code"></textarea>
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-circle"></span> Post Code</button> <a class="btn btn-default" href="/"><span class="glyphicon glyphicon-ban-circle"></span> Cancel</a>

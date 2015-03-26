@@ -73,7 +73,7 @@ $posterProfile = $userData->getUser($data[0]['poster_id']);
         <?
             if($_SESSION['uid'] == $posterName[0]['id']){
                 echo'
-                <form action="/delete/'.$key["id"].'/'.$key["poster_id"].'" method="post" enctype="multipart/form-data">
+                <form action="/delete/'.$key["id"].'/'.$key["poster_id"].'"  method="post" enctype="multipart/form-data">
                 <a href="/comments/'.$key['id'].'/'.$posterName[0]['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a>
                 <a href="/edit/'.$key['id'].'/'.$posterName[0]['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                 <input type="submit" class="right btn btn-primary" value="Delete">
