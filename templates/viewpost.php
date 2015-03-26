@@ -1,8 +1,11 @@
 <?
 $data = $returnedData[0];
 $uid = $data['poster_id'];
+$postingID = $data['id'];
 $loggedUser = $_SESSION['uid'];
 $userData = new userp();
+$comments = new getComments();
+$userComments = $comments->findComments($postingID);
 $viewData = $userData->getUser($uid);
 $loggedData = $userData->getUser($loggedUser);
 $dataLoggedin = $loggedData[0];
@@ -32,6 +35,7 @@ $dataUser = $viewData[0];
 </nav>
 
     <div class="container-fluid">
+        <div class="row">
 <?php
 
 echo '<div class="col-md-3"></div>';
@@ -48,5 +52,47 @@ echo'<div class="col-md-6 transParent">
 echo '<div class="col-md-3"></div>'
 
 ?>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 commentTitle">
+                <span class="glyphicon glyphicon-bullhorn"></span> <b>Comments</b>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 commentPosts">
+                <ul>
+                    <li class="left">User</li>
+                    <li class="right">Comments</li>
+                </ul>
+
+                <?
+                foreach($userComments as $commentKey){
+                    $viewCommentUser = $userData->getUser($commentKey['posterId']);
+                    echo '<div class="col-md-12 userPosts">';
+                    echo '<div class="col-md-2"><span class="glyphicon glyphicon-user"></span> '.$viewCommentUser[0]['username'].'</div>';
+                    echo '<div class="col-md-8">'.htmlentities($commentKey['comments']).'</div>';
+                    echo '</div>';
+                }
+                ?>
+                <div class="col-md-12 commentsBG">
+
+                    <form method="post" enctype="multipart/form-data" action="/addComment/<? echo $dataLoggedin['id']; ?>/<? echo $data['id']; ?>">
+                        <div class="form-group">
+                            <label>Type Comment Here</label>
+
+                            <textarea class="form-control" name="c"></textarea>
+                        </div>
+
+                        <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-ok-circle"></span> Add Comment</button> <a class="btn btn-default" href="/"><span class="glyphicon glyphicon-ban-circle"></span> Cancel</a>
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="col-md-3"></div>
         </div>
     </div>

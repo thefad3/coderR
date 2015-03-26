@@ -18,5 +18,7 @@ $(document).ready(function() {
         }
 
     });
+    $('#close').on('closed.bs.alert', function () {
 
+    })
 });

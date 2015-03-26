@@ -7,7 +7,17 @@
  */
 
 class addComments {
-    public function postComment(){
+    public function postComment($pid, $comments, $codeid){
+        $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
+
+        $sqlQ = $dbc->prepare("INSERT INTO `comments` (`id`, `posterId`, `comments`, `code_id`) VALUES (NULL, :pid, :comments, :codeid)");
+
+        $sqlQ->execute(
+            array(
+                ":pid"=>$pid,
+                ":comments"=>$comments,
+                ":codeid"=>$codeid
+            ));
 
 
     }

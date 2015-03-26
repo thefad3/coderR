@@ -4,7 +4,6 @@ $loggedUser = $_SESSION['uid'];
 $userData = new userp();
 $loggedData = $userData->getUser($loggedUser);
 $dataLoggedin = $loggedData[0];
-$contentLiked = false;
 
 ?>
 
@@ -32,8 +31,21 @@ $contentLiked = false;
 </nav>
 
     <div class="container-fluid">
+        <?
+        if(!empty($_SESSION['dpost'])){
+
+            echo '<div class="alert alert-danger" role="alert">You have Sucessfully Deleted your codeR :( <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button></div>';
+            unset($_SESSION['dpost']);
+        }else{
+
+        }
+        ?>
         <div class="row">
-            <div class="col-md-12">Hello world</div>
+            <div class="col-md-3"></div>
+            <div class="col-md-6"><h4>Welcome to <? var_dump($data[0]); ?> Profile</h4></div>
+            <div class="col-md-3"></div>
         </div>
         <?php
 
@@ -51,13 +63,20 @@ $contentLiked = false;
                 </code>
         </section>
         <p></p>
-        <div><a href="" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a>
+        <div>
         '; ?>
-            <? if(!$contentLiked): ?>
-                <a href="JavaScript:void(0);" uid="<? echo $loggedUser; ?>" rel="<? echo $posterName[0]['id'] ?>" class="likeButton status btn btn-danger"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
-            <? else: ?>
-                <a href="JavaScript:void(0);" uid="<? echo $loggedUser; ?>" rel="<? echo $posterName[0]['id'] ?>" class="status liked btn btn-danger unlikeButton"><span class="glyphicon glyphicon-heart-empty"></span> Unlike</a>
-            <? endif ?>
+        <?
+            if($_SESSION['uid'] == $posterName[0]['id']){
+                echo'
+                <form action="/delete/'.$key["id"].'/'.$key["poster_id"].'" method="post" enctype="multipart/form-data">
+                <a href="" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Comment</a>
+                <input type="submit" class="right btn btn-primary" value="Delete">
+                </form>
+                ';
+            }else{
+            }
+ ?>
+
             <?
             echo'</div></div>';
             echo '<div class="col-md-3"></div>';

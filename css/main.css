@@ -119,19 +119,23 @@ code {
   color: #fff;
   padding-bottom: 10px; }
   .commentPosts ul {
-    text-decoration: none;
     list-style: none; }
     .commentPosts ul li {
       display: inline-block;
       font-weight: bold; }
-  .commentPosts .userPosts {
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: 2px;
-    background-color: #333; }
+
+.userPosts {
+  border-radius: 5px;
+  margin-top: 2px;
+  vertical-align: middle;
+  background-color: #333; }
 
 .commentTitle {
   color: #fff; }
+
+.commentsBG {
+  margin-top: 5px;
+  background-color: #333; }
 
 @media screen and (max-width: 410px) {
   .navView {

@@ -52,3 +52,12 @@ class addPost{
 
     }
 }
+class deletePost{
+    public function deleteCode($pid){
+
+        $dbh = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
+        $sth = $dbh->prepare('DELETE FROM posts WHERE id=:id');
+        $sth->execute(array("id"=>$pid));
+
+    }
+}

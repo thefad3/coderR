@@ -107,6 +107,7 @@ $app->get('/protected/:id', function($id) use ($app){
 
     include('class/post.php');
     require('class/userp.php');
+    include('class/comments.php');
 
     $postData = new fetchPost();
     $returnedData = $postData->fetch($id);
@@ -163,9 +164,30 @@ $app->get('/comments/:pid/:liu', function($pid, $liu) use ($app){
 
 });
 
-$app->post('/addComment/:pid', function($pid) use ($app){
+$app->post('/addComment/:uid/:pid', function($uid,$pid) use ($app){
 
+    include('class/comments.php');
 
+    $commentsCalls = $app->request->post();
+    //var_dump($commentsCalls);
+    $commentPost = new addComments();
+    $commentPost->postComment($uid, $commentsCalls['c'], $pid);
+    $url = '/comments/'.$pid.'/'.$uid;
+    $_SESSION['cpost'] = true;
+    $app->redirect($url);
+
+});
+
+$app->post('/delete/:pid/:uid', function($pid, $uid) use ($app){
+    include('class/post.php');
+    $commentsCalls = $app->request->post();
+
+    //var_dump($uid, $pid);
+    $deletePost = new deletePost();
+    $deletePost->deleteCode($pid);
+    $url = '/profile/'.$uid;
+    $_SESSION['dpost'] = true;
+    $app->redirect($url);
 });
 
 

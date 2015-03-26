@@ -160,22 +160,25 @@ code{
   color: $text-color;
   padding-bottom: 10px;
   ul{
-    text-decoration: none;
     list-style: none;
     li{
       display: inline-block;
       font-weight: bold;
     }
   }
-  .userPosts{
-    padding: $br;
-    border-radius: $br;
-    margin-top: 2px;
-    background-color: $secondary-color;
-  }
+}
+.userPosts{
+  border-radius: $br;
+  margin-top: 2px;
+  vertical-align: middle;
+  background-color: $secondary-color;
 }
 .commentTitle{
   color: $text-color;
+}
+.commentsBG{
+  margin-top: $br;
+  background-color: $secondary-color;
 }
 
 
