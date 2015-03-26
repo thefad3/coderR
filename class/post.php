@@ -61,3 +61,19 @@ class deletePost{
 
     }
 }
+
+class updatePost{
+    public function updateAction($cid, $desc, $code){
+        $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
+
+        $sqlQ = $dbc->prepare("update posts set  `desc`=:descr, `code`=:code where id=:cid ");
+
+        $sqlQ->execute(
+            array(
+                ":cid"=>$cid,
+                ":descr"=>$desc,
+                ":code"=>$code
+            ));
+
+    }
+}

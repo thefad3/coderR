@@ -9,14 +9,16 @@
 class addComments {
     public function postComment($pid, $comments, $codeid){
         $dbc = new PDO("mysql:host=localhost;dbname=asl;port=8889", "root", "root");
-
-        $sqlQ = $dbc->prepare("INSERT INTO `comments` (`id`, `posterId`, `comments`, `code_id`) VALUES (NULL, :pid, :comments, :codeid)");
+        $date = new DateTime();
+        $timeStamp = $date->format('Y-m-d');
+        $sqlQ = $dbc->prepare("INSERT INTO `comments` (`id`, `posterId`, `comments`, `code_id`, `time`) VALUES (NULL, :pid, :comments, :codeid, :timestamp )");
 
         $sqlQ->execute(
             array(
                 ":pid"=>$pid,
                 ":comments"=>$comments,
-                ":codeid"=>$codeid
+                ":codeid"=>$codeid,
+                ":timestamp"=>$timeStamp
             ));
 
 

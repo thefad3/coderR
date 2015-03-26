@@ -82,13 +82,16 @@ $posts = $fetchA->fetchAction();
 
         echo'
             <div class="col-md-6 contentBox">
-            <b>'.$key['title'].'</b>
-            <div class="right">'.$posterName[0]['username'].'</div>
+            <h2>'.$key['title'].' <small>'.$key['title'].'</small></h2>
         <section class="codeBox">
+        <blockquote>
                 <code>
                     ' . $key['code'] .'
             </code>
+        </blockquote>
         </section>
+                    <div class="right"><b>Creator: { '.$posterName[0]['username'].' }</b></div>
+
         </div>';
         echo '<div class="col-md-3"></div>';
         echo '</div>';

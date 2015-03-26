@@ -1,9 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #666;
-$secondary-color: #333;
-$code-bg: #000;
-$text-color: #fff;
+$secondary-color: #fdfdfd;
+$code-bg: #fdfdfd;
+$text-color: #e84d75;
 $br: 5px;
 $zero: 0;
 $fullWidth: 100%;
@@ -11,6 +11,7 @@ $left: left;
 $right: right;
 $border: 1px;
 body {
+  background-color: #262722;
   background-image: url("../img/footer_lodyas.png");
 }
 footer{
@@ -52,42 +53,55 @@ footer{
     font-size: 1.3em;
     font-family: 'Roboto', sans-serif;
   }
+
   .right a{
     color: #ff3414;
   }
 }
+hr{
+  color: #000;
+}
 .codeBox{
   background-color: $code-bg;
-  padding: $br;
+  padding-top: 10px;
   border-radius: $br;
+
 }
 code{
   background-color: $code-bg;
-  padding: $zero;
-  border-radius: 2px;
 }
+
 .navbar-header{
   span{
     color: $text-color;
   }
 }
 .codeView{
-  background-color: $code-bg;
   padding-top: 10px;
+  margin-bottom: 15px;
 }
 .transParent{
-  background-color: rgba(0,0,0,.5);
-  padding: $br;
   border-radius: $br;
+  background-color: $code-bg;
+  color: $text-color;
+  padding-top: $br;
+  padding-bottom: $br;
+  margin-top: $br;
+
   -webkit-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
   -moz-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
   box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.25);
-  b{
-    font-size: 1.3em;
+  h1{
     color: $text-color;
+    padding-left: 5%;
+  }
+  hr {
+    padding: $zero;
+    margin: $zero;
   }
   .likeBox{
     color: $text-color;
+    font-size: 1.5em;
 
   }
 
@@ -141,13 +155,12 @@ code{
   float: right;
 }
 .posterBox{
-  background-color: $primary-color;
+  background-color: $secondary-color;
   border-radius: $br;
   padding-top: $br;
 
   label{
     color: $text-color;
-    background-color: rgba(0,0,0,.2);
     width: $fullWidth;
     border-radius: $br;
     padding: $br;
@@ -156,9 +169,15 @@ code{
 
 .commentPosts{
 
-  background-color: $primary-color;
+  background-color: $secondary-color;
   color: $text-color;
+  border-radius: $br;
   padding-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  b{
+    font-size: 1.3em;
+  }
   ul{
     list-style: none;
     li{
@@ -173,14 +192,30 @@ code{
   vertical-align: middle;
   background-color: $secondary-color;
 }
+.titleComment{
+  background-color: $secondary-color;
+  color: $text-color;
+  border-radius: $br;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
 .commentTitle{
   color: $text-color;
+  font-size: 1.3em;
 }
 .commentsBG{
   margin-top: $br;
   background-color: $secondary-color;
 }
 
+.userTitle{
+  color: $text-color;
+  background-color: rgba(0,0,0,.3);
+  border-radius: $br;
+}
+.dividerColor{
+  color: #000;
+}
 
 @media screen and (max-width: 410px) {
 
@@ -198,4 +233,5 @@ code{
   }
 
 }
+
 

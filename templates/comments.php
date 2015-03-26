@@ -15,18 +15,20 @@ $userReturnedData[0];
 
 
 ?>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f313bbf17f98fee" async="async"></script>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tasks"></span>  <b>codeR</b> - Design, Develop, Share</a>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tasks"></span>  <b>codeR</b></a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                    <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span> Home</a></li>
                     <li><a href="/profile/<? echo $loggedUser ?>"><span class="glyphicon glyphicon-plus-sign"></span> <? echo $dataLoggedin['username']; ?></a></li>
                     <li class="divider"></li>
                     <li><a href="/profile/<? echo $loggedUser ?>"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span> View Profile</a></li>
@@ -55,31 +57,29 @@ $userReturnedData[0];
 
     echo '<div class="row"><div class="col-md-3"></div>';
     echo'<div class="col-md-6 transParent">
-            <b>'.$data['title'].'</b>
+            <h2>'.$data['title'].' <small>'.$data['desc'].'</small></h2>
             <hr width="100%">
         <section class="col-md-12 codeView">
+        <blockquote>
             <code>
                     ' . $data['code'] .'
             </code>
-        </section>
-        <div class="col-md-12 likeBox">Created By: ' .  $dataUser['username'] .'</div>' ?>
+        </blockquote>
+        </section>' ?>
+
+        <div class="col-md-12 likeBox">{ <a href="/profile/<? echo $data['poster_id'] ?>"><? echo $dataUser['username'] ?></a> } <div class="addthis_sharing_toolbox right"></div></div>
     <?
     echo'</div>';
     echo '<div class="col-md-3"></div></div>'
 
 
     ?>
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6 commentTitle">
-            <span class="glyphicon glyphicon-bullhorn"></span> <b>Comments</b>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
 
     <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 commentPosts">
+        <span class="glyphicon glyphicon-bullhorn"></span> <b>Comments</b>
+
         <ul>
             <li class="left">User</li>
             <li class="right">Comments</li>
@@ -88,10 +88,16 @@ $userReturnedData[0];
         <?
     foreach($userComments as $commentKey){
         $viewCommentUser = $userData->getUser($commentKey['posterId']);
-        echo '<div class="col-md-12 userPosts">';
-        echo '<div class="col-md-2"><span class="glyphicon glyphicon-user"></span> '.$viewCommentUser[0]['username'].'</div>';
-        echo '<div class="col-md-8">'.htmlentities($commentKey['comments']).'</div>';
-        echo '</div>';
+        if($commentKey){
+            echo '<div class="col-md-12 userPosts">';
+            echo '<div class="col-md-2"><span class="glyphicon glyphicon-user"></span> ' . $viewCommentUser[0]['username'] . '</div>';
+            echo '<div class="col-md-8">' . htmlentities($commentKey['comments']) . '</div>';
+            echo '</div>';
+
+        }else{
+            echo '<div class="col-md-12">There are no comments :O Post one!</div>';
+        }
+
     }
     ?>
         <div class="col-md-12 commentsBG">

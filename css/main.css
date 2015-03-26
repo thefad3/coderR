@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 body {
+  background-color: #262722;
   background-image: url("../img/footer_lodyas.png"); }
 
 footer {
@@ -8,7 +9,7 @@ footer {
   footer ul {
     text-decoration: none;
     list-style: none;
-    color: #fff; }
+    color: #e84d75; }
     footer ul li {
       display: inline-block; }
   footer .footerStyle {
@@ -22,8 +23,8 @@ footer {
 
 .contentBox {
   border-radius: 5px;
-  background-color: #333;
-  color: #fff;
+  background-color: #fdfdfd;
+  color: #e84d75;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: 5px;
@@ -36,50 +37,58 @@ footer {
   .contentBox .right a {
     color: #ff3414; }
 
+hr {
+  color: #000; }
+
 .codeBox {
-  background-color: #000;
-  padding: 5px;
+  background-color: #fdfdfd;
+  padding-top: 10px;
   border-radius: 5px; }
 
 code {
-  background-color: #000;
-  padding: 0;
-  border-radius: 2px; }
+  background-color: #fdfdfd; }
 
 .navbar-header span {
-  color: #fff; }
+  color: #e84d75; }
 
 .codeView {
-  background-color: #000;
-  padding-top: 10px; }
+  padding-top: 10px;
+  margin-bottom: 15px; }
 
 .transParent {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px;
   border-radius: 5px;
+  background-color: #fdfdfd;
+  color: #e84d75;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
   -webkit-box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.25); }
-  .transParent b {
-    font-size: 1.3em;
-    color: #fff; }
+  .transParent h1 {
+    color: #e84d75;
+    padding-left: 5%; }
+  .transParent hr {
+    padding: 0;
+    margin: 0; }
   .transParent .likeBox {
-    color: #fff; }
+    color: #e84d75;
+    font-size: 1.5em; }
 
 .codeModal {
-  background-color: #000;
+  background-color: #fdfdfd;
   padding: 5px;
   border-radius: 5px; }
   .codeModal b {
     font-size: 1.3em;
-    color: #fff; }
+    color: #e84d75; }
   .codeModal .likeBox {
-    color: #fff; }
+    color: #e84d75; }
 
 .modalBorder {
   padding: 5px;
   border-radius: 5px;
-  border: 5px solid #333; }
+  border: 5px solid #fdfdfd; }
   .modalBorder blockquote p {
     padding: 5px;
     border-radius: 5px; }
@@ -90,12 +99,12 @@ code {
   font-size: 1.2em; }
 
 .text-color {
-  color: #000;
+  color: #fdfdfd;
   padding: 5px;
   border-radius: 5px;
   text-align: center; }
   .text-color a {
-    color: #000; }
+    color: #fdfdfd; }
 
 .left {
   float: left; }
@@ -104,20 +113,24 @@ code {
   float: right; }
 
 .posterBox {
-  background-color: #666;
+  background-color: #fdfdfd;
   border-radius: 5px;
   padding-top: 5px; }
   .posterBox label {
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.2);
+    color: #e84d75;
     width: 100%;
     border-radius: 5px;
     padding: 5px; }
 
 .commentPosts {
-  background-color: #666;
-  color: #fff;
-  padding-bottom: 10px; }
+  background-color: #fdfdfd;
+  color: #e84d75;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 30px; }
+  .commentPosts b {
+    font-size: 1.3em; }
   .commentPosts ul {
     list-style: none; }
     .commentPosts ul li {
@@ -128,14 +141,30 @@ code {
   border-radius: 5px;
   margin-top: 2px;
   vertical-align: middle;
-  background-color: #333; }
+  background-color: #fdfdfd; }
+
+.titleComment {
+  background-color: #fdfdfd;
+  color: #e84d75;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 0px; }
 
 .commentTitle {
-  color: #fff; }
+  color: #e84d75;
+  font-size: 1.3em; }
 
 .commentsBG {
   margin-top: 5px;
-  background-color: #333; }
+  background-color: #fdfdfd; }
+
+.userTitle {
+  color: #e84d75;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px; }
+
+.dividerColor {
+  color: #000; }
 
 @media screen and (max-width: 410px) {
   .navView {

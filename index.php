@@ -128,6 +128,7 @@ $app->get('/profile/:id', function($id) use ($app){
     $app->render('viewsh.php');
     $app->render('profile.php', array('returnedData'=>$returnedData));
 
+
 });
 
 $app->post('/like/:uid/:pid', function($uid, $pid) use ($app){
@@ -190,7 +191,39 @@ $app->post('/delete/:pid/:uid', function($pid, $uid) use ($app){
     $app->redirect($url);
 });
 
+$app->get('/edit/:pid/:uid', function($pid, $uid) use ($app) {
+    $app->render('viewsh.php');
+    include('class/profile.php');
+    include('class/post.php');
+    require('class/userp.php');
+    include('class/comments.php');
 
+
+    $userData = new profile();
+    $userReturnedData = $userData->fetchProfile($uid);
+
+    $postData = new fetchPost();
+    $returnedData = $postData->fetch($pid);
+    $app->render('edit.php', array(
+        'returnedData' => $returnedData,
+        'userReturnedData' => $userReturnedData,
+        'postingID' => $pid
+    ));
+});
+
+$app->post('/edit/:cid/', function($cid) use ($app) {
+    include('class/post.php');
+    $updatePost = new updatePost();
+    $editPost = $app->request->post();
+    $updatePost->updateAction($cid, $editPost['desc'], $editPost['code']);
+    var_dump($cid);
+    $url = '/protected/'.$cid;
+    $_SESSION['upd'] = true;
+    $app->redirect($url);
+
+
+
+});
 $app->run();
 
 ?>

@@ -1,16 +1,10 @@
 
 <footer>
-    <div class="col-md-2"></div>
-    <div class="col-md-8 footerStyle">
+    <div class="col-md-12 footerStyle">
     <ul>
-        <li>© 2015 WickedMedia.us </li>
-        <li class="right btn btn-danger"> Post Code </li>
-        <li class="right btn btn-danger"> Home </li>
-
-
+        <li>&reg; 2015 IDFWU Enterprises & WickedMedia. All rights reserved. </li>
     </ul>
     </div>
-    <div class="col-md-2"></div>
 </footer>
 
 </body>
